@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="./style.css">
+<body>
+    <div class="container">
+        <div class="row text-center">
+            <h1>New York Stock Exchange (2015.1.4 - 2016.12.31)</h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                <spam>Company Symbol: <input type="text" name="company" id="company" value=""/></spam>
+            </div>
+            <div class="col">
+                <spam>Date Range: <input type="text" id="from" name="daterange"></spam>
+            </div>
+            <div class="col">
+                <input type="button" name="filter" id="filter" value='filter'>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <svg class="col-12 col-md-8"></svg>
+            <div class="col-md-3 container border border-dark" id="board">
+                <div class="row"><h3>Transaction Details:</h3></div>
+                <div class="row">
+                    <div class="col-md-6">Date:</div>
+                    <div id="date"  class="col-md-6"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">Open Price:</div>
+                    <div id="open"  class="col-md-6"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">Close Price:</div>
+                    <div id="close"  class="col-md-6"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">High Price:</div>
+                    <div id="high"  class="col-md-6"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">Low Price:</div>
+                    <div id="low"  class="col-md-6"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">Volume:</div>
+                    <div id="volume"  class="col-md-6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+    
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="http://d3js.org/d3.v4.min.js"></script>
+<script src="http://techanjs.org/techan.min.js"></script>
+<script src="./candlesticks.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script>
+    $('input[name="daterange"]').daterangepicker();
+
+    // console.log();
+    //   var company = $('#company').val();
+    // console.log($('#company').val());
+    // console.log($('#from').val())
+    // console.log($('#to').val())
+</script>
