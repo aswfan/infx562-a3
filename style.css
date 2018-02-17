@@ -1,8 +1,4 @@
 
-    body {
-        font: 10px sans-serif;
-    }
-
     text {
         fill: #000;
     }
@@ -71,15 +67,40 @@
         margin-top: 20px;
     }
 
-    .row {
-        display: inline-block;
-    }
 
-    .container {
+    .div-margin {
         margin-top: 20px;
         margin-bottom: 10px;
     }
 
+    #board {
+        border-style: solid;
+        margin-left: -100px;
+    }
+
+    #chart {
+        margin-left: -100px;
+    }
+
     h1 {
         text-align: center;
+    }
+
+    .modal {
+        text-align: center;
+        padding: 0!important;
+    }
+      
+    .modal:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+    
+    .modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
     }

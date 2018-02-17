@@ -9,10 +9,9 @@
     var daterange = $('input[name="daterange"]');
 
    $('#filter').on("click", () => {
+        $('#pleaseWaitDialog').modal('toggle');
         if($('#company').val()) {
             filterDataAndDraw();
-        //     var dates = daterange.val().split(" - ");
-        //     console.log(parseDate('2/1/2018').getTime());
         }
     });
 
@@ -135,26 +134,26 @@
             .call(yAxis2);
 
     function filterDataAndDraw() {
-        var result = d3.csv("prices.csv", (error, data) => {
+        d3.csv("prices.csv", (error, data) => {
                 var accessor = candlestick.accessor(), flag = false, from, to,
                 timestart = Date.now();
                 var drvalue = daterange.val();
                 var company = $('#company').val();
                 if(drvalue !== "") {
-                    var dates = drvalue.split(" - ");
-                    from = parseDate(dates[0]).getTime();
-                    to = parseDate(dates[1]).getTime()
-                    flag = true;
+                        var dates = drvalue.split(" - ");
+                        from = parseDate(dates[0]).getTime();
+                        to = parseDate(dates[1]).getTime()
+                        flag = true;
                 }
                 data = data.filter((d)=> {
-                    var ok = d.symbol == company;
-                    if(flag) {
+                        var ok = d.symbol == company;
+                        if(flag) {
                         var date = parseDate(d.date).getTime();
                         ok = ok && date > from && date < to;
-                    }
-                    return ok;
+                        }
+                        return ok;
                 }).map(function(d) {
-                    return {
+                        return {
                         name: d.symbol,
                         date: parseDate(d.date),
                         open: +d.open,
@@ -162,29 +161,30 @@
                         low: +d.low,
                         close: +d.close,
                         volume: +d.volume
-                    };
+                        };
                 }).sort(function(a, b) { return d3.ascending(accessor.d(a), accessor.d(b)); });
-        
+
                 x.domain(data.map(accessor.d));
                 x2.domain(x.domain());
                 y.domain(techan.scale.plot.ohlc(data, accessor).domain());
                 y2.domain(y.domain());
                 yVolume.domain(techan.scale.plot.volume(data).domain());
-        
+
                 focus.select("g.candlestick").datum(data);
                 focus.select("g.volume").datum(data);
-        
+
                 context.select("g.close").datum(data).call(close);
                 context.select("g.x.axis").call(xAxis2);
-        
+
                 // Associate the brush with the scale and render the brush only AFTER a domain has been applied
                 context.select("g.pane").call(brush).selectAll("rect").attr("height", height2);
-        
+
                 x.zoomable().domain(x2.zoomable().domain());
                 draw();
-        
+
                 console.log("Render time: " + (Date.now()-timestart));
-            });
+                $('#pleaseWaitDialog').modal('toggle');
+        });
     }
 
 
@@ -211,8 +211,9 @@
     }
 
     function move(coords) {
+        var company = $('#company').val();
         var record = focus.select("g.candlestick").datum().filter((d) => {
-                return d.name === "AAL" && d.date === coords.x;
+                return d.name === company && d.date === coords.x;
         })
         $('#date').text(timeAnnotation.format()(record[0].date));
         $('#open').text(record[0].open);
@@ -230,4 +231,6 @@
         $('#low').text('');
         $('#volume').text('');
     }
+
+    
 })();
