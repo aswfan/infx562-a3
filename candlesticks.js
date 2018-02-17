@@ -9,8 +9,11 @@
     var daterange = $('input[name="daterange"]');
 
    $('#filter').on("click", () => {
-        $('#pleaseWaitDialog').modal('toggle');
-        if($('#company').val()) {
+        $('#pleaseWaitDialog').modal('show');
+    });
+
+    $('#pleaseWaitDialog').on('show.bs.modal', (e) => {
+        if($('#company').val() !== "") {
             filterDataAndDraw();
         }
     });
