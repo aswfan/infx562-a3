@@ -1,6 +1,6 @@
-## Deliverables - INFX 562 Assignment 3 ##
+##Deliverables - INFX 562 Assignment 3##
 
-**1. Data domain and visualization technique**
+1. Data domain and visualization technique
 
 Stock market is always the most existing wonderland for adventurers. There, entrepreneurs come with craziest ideas and agile investors seek and seize any chance to maximize their profits. Everyday, a large scale of predator-prey game happens in the stock market and the price of a stock fluctuates widely with the general expectation of investors. The more positive investors feel about the business, the higher the price of the stock is. So, having an effective visualization tool to depict the general trend of the stock exchange price as well as volume is of great sense to both average investors and analysts.
 
