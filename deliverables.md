@@ -1,4 +1,4 @@
-##Deliverables - INFX 562 Assignment 3##
+## Deliverables - INFX 562 Assignment 3
 
 1. **Data domain and visualization technique**
 
