@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <br/>
+    <br/>
     <div class="container">
         <div class="row text-center">
             <h1>New York Stock Exchange (2015.1.1 - 2017.1.1)</h1>
@@ -67,6 +69,90 @@
                     </div>
                     <br>
             </div>
+        </div>
+        <div class="row div-margin">
+                <h2>Background Story and Analysis</h2>
+                <ol>
+                <li><strong>Data domain and visualization technique</strong></li>
+                
+                </ol>
+                <p>Stock market is always the most existing wonderland for adventurers. There, entrepreneurs come with craziest ideas and agile investors seek and seize any chance to maximize their profits. Everyday, a large scale of predator-prey game happens in the stock market and the price of a stock fluctuates widely with the general expectation of investors. The more positive investors feel about the business, the higher the price of the stock is. So, having an effective visualization tool to depict the general trend of the stock exchange price as well as volume is of great sense to both average investors and analysts.</p>
+                <p>So my story here is quite simple. I&#39;d like to have a powerful tool to display the daily prices of different stocks, being able to depict both the long-term and short-term trend of each stock. Since the transaction data of stocks are extremely large and trivial for some of them, it is always a headache for investors as well as analysts. So, it will be helpful to have an interactive visualization save us from tons of meaningless details. </p>
+                <ol>
+                <li><strong>Storyboard</strong></li>
+                
+                </ol>
+                <p>In general, it will display transaction data like what candlestick chart does, which stresses out the high, low, open, and close prices of stocks and depict the trend of the price over time as well. To support an interactive communication with user, I would like to enable the visualization to perform some queries based on the dataset. So, when users type in some key words like the company symbol or the transaction date range, the chart will respond correspondingly, filtering the irrelevant information. Besides, it is necessary to simplify the the process and operation so that the most general user can easily understand and play with it without any domain knowledge. </p>
+                <p>In summary, the visualization will:</p>
+                <ul>
+                <li>display transaction data in candlestick chart,</li>
+                <li>allow user type in the company symbol to filter the dataset and update the chart,</li>
+                <li>allow user type in transaction date to filter the dataset and update the chart.</li>
+                
+                </ul>
+                <p><img src='https://github.com/aswfan/MarkdownPhoto/raw/master/myPhotos/storyboard4.JPG' alt='' /></p>
+                <p><img src='https://github.com/aswfan/MarkdownPhoto/raw/master/myPhotos/storyboard2.JPG' alt='' /></p>
+                <p><img src='https://github.com/aswfan/MarkdownPhoto/raw/master/myPhotos/storyboard3.JPG' alt='' /></p>
+                <p>&nbsp;</p>
+                <ol>
+                <li><strong>Data Source</strong></li>
+                
+                </ol>
+                <p>The dataset used here is obtained from <em>Kaggle</em>. It includes daily prices of companies on New York stock market, spanning from 2010 to the end 2016. Following are the columns contained in the dataset:</p>
+                <figure><table>
+                <thead>
+                <tr><th>Column Name</th><th>Data Type</th><th>Description</th></tr></thead>
+                <tbody><tr><td>date</td><td>DateTime</td><td>Transaction date</td></tr><tr><td>symbol</td><td>String</td><td>Company symbol on the stock market</td></tr><tr><td>open</td><td>Numeric</td><td>The final price of the stock upon the opening of an exchange on a given day</td></tr><tr><td>close</td><td>Numeric</td><td>The final price of the stock on a given day</td></tr><tr><td>low</td><td>Numeric</td><td>The lowest price of the stock on a given day</td></tr><tr><td>high</td><td>Numeric</td><td>The highest price of the stock on a given day</td></tr><tr><td>volume</td><td>Numeric</td><td>The total number of transaction of the stock on a given day</td></tr></tbody>
+                </table></figure>
+                <p>Link: <a href='https://www.kaggle.com/dgawlik/nyse' target='_blank' >https://www.kaggle.com/dgawlik/nyse</a></p>
+                <ol>
+                <li><strong>Final interactive visualization application</strong></li>
+                
+                </ol>
+                <p>Following are the screenshots of my final visualization. As you can see from first screenshot, my visualization are split into 6 parts. They are <code>Company Symbol</code> search box, <code>Date Range</code> drop down box, <code>View</code> button, <code>short<span style='font-family:"Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'>-</span>term candlestick chart</code>, <code>long<span style='font-family:"Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'>-</span>term trend chart</code>, and <code>Transaction Details</code> board.</p>
+                <p><img src='https://github.com/aswfan/MarkdownPhoto/raw/master/myPhotos/a3-1.png' alt='General Description' /></p>
+                <ol>
+                <li><strong>Explanation of changes</strong></li>
+                
+                </ol>
+                <p>Beside the expected interaction mentioned above, I also add some new interactions for user to better analyze the dataset. Following are detailed descriptions for features.</p>
+                <ul>
+                <li><u>Search by company symbol:</u></li>
+                
+                </ul>
+                <p>User types in the company symbol in the highlight input box and click <code>View</code> button on the right to update the charts below. </p>
+                <p><img src='https://github.com/aswfan/MarkdownPhoto/raw/master/myPhotos/a3-2.png' alt='' /></p>
+                <ul>
+                <li><u>Filter the dataset by date:</u></li>
+                
+                </ul>
+                <p>After getting the transaction data for a specific company, user then can change the transaction date range through the <code>Date Range</code> drop down box. Once selecting the date range and clicking the <code>View</code> button, the charts blow will get update to the desired date range.</p>
+                <p><img src='https://github.com/aswfan/MarkdownPhoto/raw/master/myPhotos/a3-3.png' alt='' /></p>
+                <p><img src='https://github.com/aswfan/MarkdownPhoto/raw/master/myPhotos/a3-6.png' alt='' /></p>
+                <ul>
+                <li><u>Mouse-hover interaction:</u></li>
+                
+                </ul>
+                <p>While the mouse gets hovered on the <code>short<span style='font-family:"Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'>-</span>term candlestick chart</code>, a crosshair with dot line will show up and the corresponding values in both axis will get highlighted. Apart from that, the detailed transaction data of the company on that day will get updated on the <code>Transaction Details</code> board.</p>
+                <p><img src='https://github.com/aswfan/MarkdownPhoto/raw/master/myPhotos/a3-4.png' alt='' /></p>
+                <ul>
+                <li><u>Brushing of the plot:</u></li>
+                
+                </ul>
+                <p>User can also brush the <code>long<span style='font-family:"Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'>-</span>term trend chart</code> to roughly filter the dataset and update <code>short<span style='font-family:"Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'>-</span>term candlestick chart</code> as well. </p>
+                <p><img src='https://github.com/aswfan/MarkdownPhoto/raw/master/myPhotos/a3-5.png' alt='' /></p>
+                <ol>
+                <li><strong>Development process</strong></li>
+                
+                </ol>
+                <ul>
+                <li>From this assignment, I find <em>D3</em> is really an powerful tool in visualization design and implementation. It is based on JavaScript and gives large flexibility for its user to design and implement its idea. At first, when I am not quite familiar with <em>D3</em>, I don&#39;t know what it can do. So I just hope it could help me do some interactive visualization as how <em>Tableau</em> help me with non-interactive charts. But it far more exceeds my expectation. As you can see from the changes between the storyboard and the final implementation, I add a lot of new features to my original design! Starting from some idea, I search and learn from examples on the Internet and keep improving my chart. I really enjoy the whole process!</li>
+                <li>As our TA mentioned in the first week, the learning curve of <em>D3</em> is really steep and I spend almost the whole week to learn <em>D3</em> and think about how to present the dataset. Sometime, I just got stuck in the confliction of different version of JavaScript library (<em>JQuery</em> and <em>Bootstrap</em>). Although it takes me a lot of time, I have to say it all get paid off at last. </li>
+                
+                </ul>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                
         </div>
     </div>
 

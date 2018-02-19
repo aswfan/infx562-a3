@@ -104,3 +104,7 @@
         text-align: left;
         vertical-align: middle;
     }
+
+    img {
+        width: 100%;
+    }
